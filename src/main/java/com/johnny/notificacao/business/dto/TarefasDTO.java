@@ -1,10 +1,7 @@
 package com.johnny.notificacao.business.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.johnny.notificacao.business.enums.StatusNotificacaoEnum;
 import lombok.*;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -16,12 +13,12 @@ public class TarefasDTO {
     private String id;
     private String nomeTarefa;
     private String descricao;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
-    private LocalDateTime dataCriacao;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
-    private LocalDateTime dataEvento;
+
+    // 🔁 Agora tudo é String — simples, seguro e sem erro de parse
+    private String dataCriacao;
+    private String dataEvento;
+    private String dataAlteracao;
+
     private String emailUsuario;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
-    private LocalDateTime dataAlteracao;
     private StatusNotificacaoEnum statusNotificacaoEnum;
 }
